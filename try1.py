@@ -1,6 +1,19 @@
 import streamlit as st
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from huggingface_hub.hf_api import HfFolder
 
+import requests
+
+API_URL = "https://api-inference.huggingface.co/models/hscrown/oliveKobart"
+headers = {"Authorization": "Bearer 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"}
+
+def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+	
+output = query({
+	"inputs": "The answer to the universe is",
+})
 # 모델 및 토크나이저 로드
 tokenizer = AutoTokenizer.from_pretrained("hscrown/oliveKobart")
 model = AutoModelForSeq2SeqLM.from_pretrained("hscrown/oliveKobart")
