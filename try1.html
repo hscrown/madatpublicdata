@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>서울 지도 예시</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #mapid { height: 400px; }
+    </style>
+</head>
+<body>
+
+<div id="mapid"></div>
+
+<script>
+    var mymap = L.map('mapid').setView([37.5665, 126.9780], 13); // 서울 시청의 좌표로 지도 중심 설정
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+    }).addTo(mymap);
+
+    var marker = L.marker([37.5665, 126.9780]).addTo(mymap); // 서울 시청 위치에 마커 추가
+    marker.bindPopup("<b>서울 시청</b>").openPopup();
+</script>
+
+</body>
+</html>
+
