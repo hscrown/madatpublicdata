@@ -1,3 +1,4 @@
+# NLP 모델 웹에 배포하기 연습2
 import streamlit as st
 import requests
 
@@ -22,4 +23,8 @@ if st.button('텍스트 요약'):
     
     # 응답 표시
     st.write("요약문:")
-    st.json(output)  # API의 응답 구조에 따라 출력 형태가 달라질 수 있음
+    if output and isinstance(output, list) and 'generated_text' in output[0]:
+        st.write(output[0]['generated_text'])  # JSON의 'generated_text' 값을 표시
+    else:
+        st.write("응답을 처리할 수 없습니다. 응답 구조를 확인해주세요.")
+ 

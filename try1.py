@@ -1,3 +1,4 @@
+# NLP 모델 웹에 배포하기 연습 ## 실패
 import streamlit as st
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from huggingface_hub.hf_api import HfFolder
