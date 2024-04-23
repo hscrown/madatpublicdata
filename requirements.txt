@@ -1,4 +1,8 @@
-streamlit==1.29.0
-transformers==4.36.2
-torch==2.1.2
-huggingface-hub
+# Python 3.10.12
+# google-colab 1.0.0
+numpy==1.25.2
+pandas==2.0.3
+lxml==4.9.4
+datasets==2.19.0
+requests==2.31.0
+haversine==2.8.1
